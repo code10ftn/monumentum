@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "io.github.code10ftn.monumentum"
+        minSdkVersion 23
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    ext {
+        googlePlayServicesVersion = "15.0.1"
+    }
+}
+
+def AAVersion = '4.6.0'
+def ASVersion = '27.1.1'
+def FVersion = '11.6.2'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android Annotations:
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+
+    // Support Library:
+    implementation "com.android.support:appcompat-v7:$ASVersion"
+    implementation "com.android.support:design:$ASVersion"
+    implementation "com.android.support:cardview-v7:$ASVersion"
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+
+    // Image caching:
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation "com.facebook.fresco:fresco:1.1.0"
+
+    // Debugging:
+    implementation 'com.facebook.stetho:stetho:1.4.1'
+
+    // Database:
+    annotationProcessor "org.androidannotations:ormlite:$AAVersion"
+    implementation "org.androidannotations:ormlite-api:$AAVersion"
+    implementation "com.j256.ormlite:ormlite-android:5.0"
+
+    // Google Maps:
+    implementation "com.google.android.gms:play-services-maps:$FVersion"
+    implementation "com.google.android.gms:play-services-location:$FVersion"
+    implementation "com.google.maps.android:android-maps-utils:0.5"
+
+    // Rest API:
+    implementation 'com.google.code.gson:gson:2.8.4'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    implementation "org.androidannotations:rest-spring-api:$AAVersion"
+    annotationProcessor "org.androidannotations:rest-spring:$AAVersion"
+    implementation 'org.springframework.android:spring-android-rest-template:2.0.0.M3'
+}
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/keep_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/keep_login"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/keep_login"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/keep_login_description"
+                android:textColor="@color/colorPrimaryTextDark"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/keepLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:checked="true"
+                android:switchMinWidth="56dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/unitsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/distance_units"
+                android:textColor="@color/colorPrimaryTextDark"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/units"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/unitsLabel"
+                android:prompt="@string/distance_units" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
